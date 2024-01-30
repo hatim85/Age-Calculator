@@ -16,10 +16,13 @@ function calculateage() {
   let m2 = today.getMonth() + 1;
   let y2 = today.getFullYear();
 
-  if (y1 > y2) {
+  if (isNaN(birthdate.getTime())) {
     result.innerHTML = "Invalid Date";
   }
-  else if(y1==y2){
+  else if(y1 > y2 || (y1 === y2 && m1 > m2) || (y1 === y2 && m1 === m2 && d1 > d2)){
+    result.innerHTML = "Invalid Date";
+  }
+  else if(d1 === d2 && m1 === m2 && y1 === y2){
     result.innerHTML="Happy birthday!";
   }
   else {
